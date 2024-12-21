@@ -54,7 +54,7 @@ const EnrollByScrape = () => {
     // console.log('current url: ', state.url);
     if (state.url === 'https://mticket.interpark.com/MyPage/BookedDetail') {
       scrapeInterparkTicketDetails(webViewRef);
-    } else if (state.url === 'https://www.interpark.com/') {
+    } else if (state.url === 'https://mticket.interpark.com/MyTicket/') {
       const redirectScript = `
         window.location.href = 'https://mticket.interpark.com/MyPage/BookedList?PeriodSearch=03#';
       `;
@@ -141,7 +141,7 @@ const EnrollByScrape = () => {
         <WebView
           ref={webViewRef}
           style={styles.webview}
-          source={{ uri: 'https://accounts.interpark.com/login/form' }}
+          source={{ uri: 'https://accounts.interpark.com/authorize/ticket-mweb?version=v2&origin=https%3A%2F%2Fmticket.interpark.com%2FMyTicket%2F&postProc=NONE' }}
           onNavigationStateChange={handleInterparkNavigationStateChange}
           onMessage={(event) => handleMessage(event, 'interpark')}
         />
